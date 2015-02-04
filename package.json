@@ -1,0 +1,32 @@
+{
+  "name": "buffer-to-vinyl",
+  "version": "1.0.0",
+  "description": "Create a vinyl file or stream from a buffer",
+  "license": "MIT",
+  "repository": "kevva/buffer-to-vinyl",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [],
+  "dependencies": {
+    "file-type": "^2.2.0",
+    "through2": "^0.6.3",
+    "uuid": "^2.0.1",
+    "vinyl": "^0.4.6"
+  },
+  "devDependencies": {
+    "ava": "^0.0.4",
+    "concat-stream": "^1.4.7"
+  }
+}
