@@ -13,6 +13,8 @@ test('create vinyl file from buffer', function (t) {
 });
 
 test('create vinyl stream from buffer', function (t) {
+	t.plan(2);
+
 	var file = fs.readFileSync(__filename, null);
 	var stream = bufferToVinyl.stream(file, 'foo');
 
