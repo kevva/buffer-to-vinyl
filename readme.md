@@ -2,11 +2,13 @@
 
 > Create a vinyl file or stream from a buffer
 
+
 ## Install
 
-```sh
+```
 $ npm install --save buffer-to-vinyl
 ```
+
 
 ## Usage
 
@@ -18,6 +20,7 @@ bufferToVinyl.file(fs.readFileSync('foo.jpg', null));
 bufferToVinyl.stream(fs.readFileSync('foo.jpg', null));
 ```
 
+
 ## API
 
 ### .file(buf, [name])
@@ -27,6 +30,7 @@ Creates a vinyl file.
 ### .stream(buf, [name])
 
 Creates a object stream.
+
 
 ## License
 

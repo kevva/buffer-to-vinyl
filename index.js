@@ -1,14 +1,14 @@
 'use strict';
 
-var File = require('vinyl');
 var fileType = require('file-type');
 var through = require('through2');
 var uuid = require('uuid');
+var Vinyl = require('vinyl');
 
 module.exports.file = function (buf, name) {
 	var ext = fileType(buf) ? fileType(buf).ext : null;
 
-	return new File({
+	return new Vinyl({
 		contents: buf,
 		path: (name  || uuid.v4()) + (ext || '')
 	});
