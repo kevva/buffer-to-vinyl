@@ -6,7 +6,7 @@ var uuid = require('uuid');
 var Vinyl = require('vinyl');
 
 module.exports.file = function (buf, name) {
-	var ext = fileType(buf) ? fileType(buf).ext : null;
+	var ext = fileType(buf) ? '.' + fileType(buf).ext : null;
 
 	return new Vinyl({
 		contents: buf,
