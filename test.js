@@ -1,5 +1,4 @@
 'use strict';
-
 var fs = require('fs');
 var concatStream = require('concat-stream');
 var test = require('ava');
