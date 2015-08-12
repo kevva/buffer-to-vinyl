@@ -1,6 +1,6 @@
 'use strict';
 var fileType = require('file-type');
-var through = require('through2');
+var PassThrough = require('readable-stream/passthrough');
 var uuid = require('uuid');
 var Vinyl = require('vinyl');
 
@@ -14,7 +14,7 @@ module.exports.file = function (buf, name) {
 };
 
 module.exports.stream = function (buf, name) {
-	var stream = through.obj();
+	var stream = new PassThrough({objectMode: true});
 	stream.end(module.exports.file(buf, name));
 	return stream;
 };
