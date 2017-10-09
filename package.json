@@ -1,33 +1,40 @@
 {
-  "name": "buffer-to-vinyl",
-  "version": "1.1.0",
-  "description": "Create a vinyl file or stream from a buffer",
-  "license": "MIT",
-  "repository": "kevva/buffer-to-vinyl",
-  "author": {
-    "name": "Kevin Mårtensson",
-    "email": "kevinmartensson@gmail.com",
-    "url": "https://github.com/kevva"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "xo && node test.js"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [],
-  "dependencies": {
-    "file-type": "^3.1.0",
-    "readable-stream": "^2.0.2",
-    "uuid": "^2.0.1",
-    "vinyl": "^1.0.0"
-  },
-  "devDependencies": {
-    "ava": "^0.0.4",
-    "concat-stream": "^1.4.7",
-    "xo": "*"
-  }
+	"name": "buffer-to-vinyl",
+	"version": "1.1.0",
+	"description": "Create a vinyl file or stream from a buffer",
+	"license": "MIT",
+	"repository": "kevva/buffer-to-vinyl",
+	"author": {
+		"name": "Kevin Mårtensson",
+		"email": "kevinmartensson@gmail.com",
+		"url": "https://github.com/kevva"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"buffer",
+		"convert",
+		"file",
+		"gulp",
+		"util",
+		"vinyl"
+	],
+	"dependencies": {
+		"file-type": "^7.2.0",
+		"readable-stream": "^2.0.2",
+		"uuid": "^3.1.0",
+		"vinyl": "^2.1.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"get-stream": "^3.0.0",
+		"xo": "*"
+	}
 }

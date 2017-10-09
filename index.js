@@ -1,11 +1,11 @@
 'use strict';
-var fileType = require('file-type');
-var PassThrough = require('readable-stream/passthrough');
-var uuid = require('uuid');
-var Vinyl = require('vinyl');
+const fileType = require('file-type');
+const PassThrough = require('readable-stream/passthrough');
+const uuid = require('uuid');
+const Vinyl = require('vinyl');
 
-module.exports.file = function (buf, name) {
-	var ext = fileType(buf) ? '.' + fileType(buf).ext : null;
+module.exports.file = (buf, name) => {
+	const ext = fileType(buf) ? `.${fileType(buf).ext}` : null;
 
 	return new Vinyl({
 		contents: buf,
@@ -13,8 +13,8 @@ module.exports.file = function (buf, name) {
 	});
 };
 
-module.exports.stream = function (buf, name) {
-	var stream = new PassThrough({objectMode: true});
+module.exports.stream = (buf, name) => {
+	const stream = new PassThrough({objectMode: true});
 	stream.end(module.exports.file(buf, name));
 	return stream;
 };

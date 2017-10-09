@@ -1,24 +1,18 @@
-'use strict';
-var fs = require('fs');
-var concatStream = require('concat-stream');
-var test = require('ava');
-var bufferToVinyl = require('./');
+import fs from 'fs';
+import getStream from 'get-stream';
+import test from 'ava';
+import m from '.';
 
-test('create vinyl file from buffer', function (t) {
-	var file = fs.readFileSync(__filename, null);
-	t.assert(bufferToVinyl.file(file).contents.length, bufferToVinyl.file(file).contents.length);
-	t.assert(bufferToVinyl.file(file, 'foo').path === 'foo', bufferToVinyl.file(file, 'foo').path);
-	t.end();
+const fixture = fs.readFileSync(__filename, null);
+
+test('create vinyl file from buffer', t => {
+	const file = m.file(fixture, 'foo');
+	t.true(file.contents.length > 0);
+	t.is(file.path, 'foo');
 });
 
-test('create vinyl stream from buffer', function (t) {
-	t.plan(2);
-
-	var file = fs.readFileSync(__filename, null);
-	var stream = bufferToVinyl.stream(file, 'foo');
-
-	stream.pipe(concatStream(function (files) {
-		t.assert(files[0].contents.length, files[0].contents.length);
-		t.assert(files[0].path === 'foo', files[0].path);
-	}));
+test('create vinyl stream from buffer', async t => {
+	const [file] = await getStream.array(m.stream(fixture, 'foo'));
+	t.true(file.contents.length > 0);
+	t.is(file.path, 'foo');
 });

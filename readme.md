@@ -1,4 +1,4 @@
-# buffer-to-vinyl [![Build Status](http://img.shields.io/travis/kevva/buffer-to-vinyl.svg?style=flat)](https://travis-ci.org/kevva/buffer-to-vinyl)
+# buffer-to-vinyl [![Build Status](https://travis-ci.org/kevva/buffer-to-vinyl.svg?branch=master)](https://travis-ci.org/kevva/buffer-to-vinyl)
 
 > Create a vinyl file or stream from a buffer
 
@@ -6,15 +6,15 @@
 ## Install
 
 ```
-$ npm install --save buffer-to-vinyl
+$ npm install buffer-to-vinyl
 ```
 
 
 ## Usage
 
 ```js
-var bufferToVinyl = require('buffer-to-vinyl');
-var fs = require('fs');
+const fs = require('fs');
+const bufferToVinyl = require('buffer-to-vinyl');
 
 bufferToVinyl.file(fs.readFileSync('foo.jpg', null));
 bufferToVinyl.stream(fs.readFileSync('foo.jpg', null));
@@ -23,13 +23,37 @@ bufferToVinyl.stream(fs.readFileSync('foo.jpg', null));
 
 ## API
 
-### .file(buf, [name])
+### bufferToVinyl.file(buffer, [name])
 
-Creates a vinyl file.
+Returns a `Vinyl` file.
 
-### .stream(buf, [name])
+#### buffer
 
-Creates a object stream.
+Type: `Buffer`
+
+Buffer to create the file from.
+
+#### name
+
+Type: `string`
+
+Optional file name.
+
+### bufferToVinyl.stream(buffer, [name])
+
+Returns a object `PassThrough` stream.
+
+#### buffer
+
+Type: `Buffer`
+
+Buffer to create the stream from.
+
+#### name
+
+Type: `string`
+
+Optional file name.
 
 
 ## License
